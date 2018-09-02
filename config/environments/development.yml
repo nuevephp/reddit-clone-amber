@@ -21,7 +21,7 @@ process_count: 1
 # ssl_key_file:
 # ssl_cert_file:
 redis_url: "redis://localhost:6379"
-database_url: postgres://postgres:@localhost:5432/reddit_development
+database_url: postgres://andrewsmith:@localhost:5432/reddit_development
 
 session:
   key: amber.session

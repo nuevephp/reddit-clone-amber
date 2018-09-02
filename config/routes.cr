@@ -28,6 +28,7 @@ Amber::Server.configure do
   end
 
   routes :web do
+    resources "/posts", PostController
     get "/", HomeController, :index
   end
 
