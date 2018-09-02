@@ -6,7 +6,7 @@ class User < Granite::Base
   adapter pg
 
   has_many :posts
-  
+
   primary id : Int64
   field email : String
   field hashed_password : String

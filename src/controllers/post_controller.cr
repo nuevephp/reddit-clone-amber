@@ -34,10 +34,16 @@ class PostController < ApplicationController
 
   def create
     post = Post.new post_params.validate!
+    if user = current_user
+      post.user = user
+    else
+      redirect_to action: :index, flash: {"danger" => "You need to be logged in"}
+    end
+
     if post.save
       redirect_to action: :index, flash: {"success" => "Created post successfully."}
     else
-      flash["danger"] = "Could not create Post!"
+      flash["danger"] = "Could not create Post! Wat: #{current_user}"
       render "new.slang"
     end
   end
