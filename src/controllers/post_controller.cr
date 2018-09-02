@@ -2,7 +2,7 @@ class PostController < ApplicationController
   getter post = Post.new
 
   before_action do
-    only [:show, :edit, :update, :destroy] { set_post }
+    only [:show, :edit, :update, :destroy, :upvote] { set_post }
   end
 
   def index
@@ -51,6 +51,10 @@ class PostController < ApplicationController
   def destroy
     post.destroy
     redirect_to action: :index, flash: {"success" => "Deleted post successfully."}
+  end
+
+  def upvote
+    
   end
 
   private def post_params
