@@ -1,7 +1,10 @@
 require "jasper_helpers"
+# require "humanize_time"
 
 class ApplicationController < Amber::Controller::Base
   include JasperHelpers
+  include Helpers::TimeToStringHelper
+
   LAYOUT = "application.slang"
 
   def current_user

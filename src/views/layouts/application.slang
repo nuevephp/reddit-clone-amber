@@ -12,18 +12,20 @@ html
     link rel="icon" type="image/x-icon" href="/favicon.ico"
 
   body
-    .masthead
+    header.navbar.navbar-expand-lg.navbar-light.bg-light
       .container
-        nav.nav
-          == render(partial: "layouts/_nav.slang")
-    .container
+        #logo.navbar-brand == link_to("Raddit", "/")
+        nav.collapse.navbar-collapse
+          ul.nav.navbar-nav.ml-auto
+            == render(partial: "layouts/_nav.slang")
+    #main-content.container
       .row
         .col-sm
           - flash.each do |key, value|
             div class="alert alert-#{key}"
               p = flash[key]
       .row
-        .col-sm-12.main
+        #content.col-sm-12.main
           == content
 
     script src="https://code.jquery.com/jquery-3.3.1.min.js"

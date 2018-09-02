@@ -41,6 +41,10 @@ dependencies:
     github: amberframework/citrine-i18n
     version: 0.3.2
 
+  humanize_time:
+    github: mamantoha/humanize_time
+    version: 0.3.0
+
 development_dependencies:
  garnet_spec:
    github: amberframework/garnet-spec

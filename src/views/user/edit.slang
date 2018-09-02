@@ -9,5 +9,6 @@ h1 Edit Profile
   == csrf_tag
   .form-group
     input.form-control type="email" name="email" placeholder="Email" value="#{user.email}"
-  == submit("Update", class: "btn btn-primary btn-sm")
-  == link_to("profile", "/profile", class: "btn btn-light btn-sm")
+  .form-group
+  == submit("Update", class: "btn btn-primary btn-lg")
+  == link_to("profile", "/profile", class: "btn btn-light btn-link")

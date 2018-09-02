@@ -40,6 +40,10 @@ shards:
     github: amberframework/granite
     version: 0.13.1
 
+  humanize_time:
+    github: mamantoha/humanize_time
+    version: 0.3.0
+
   i18n:
     github: TechMagister/i18n.cr
     version: 0.2.0
