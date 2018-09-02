@@ -4,6 +4,9 @@ require "crypto/bcrypt/password"
 class User < Granite::Base
   include Crypto
   adapter pg
+
+  has_many :posts
+  
   primary id : Int64
   field email : String
   field hashed_password : String

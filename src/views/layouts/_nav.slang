@@ -1,7 +1,5 @@
 - active = context.request.path == "/" ? "active" : ""
 a class="nav-item #{active}" href="/" Home
-- active = context.request.path == "/posts" ? "active" : ""
-a class="nav-item #{active}" href="/posts" Posts
 - if (current_user = context.current_user)
   a.nav-item.nav-item-auth.nav-item-auth-signout href="/signout"
     | Sign Out
