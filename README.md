@@ -1,8 +1,17 @@
-# reddit
+# reddit clone
 
 [![Amber Framework](https://img.shields.io/badge/using-amber_framework-orange.svg)](https://amberframework.org)
 
-This is a project written using [Amber](https://amberframework.org). Enjoy!
+Following from the tutorial of 12 projects in 12 Weeks with Rails.
+
+### To do
+- Voting
+    - Upvote
+    - Downvote
+- Comment
+    - Body should be validated to not allow empty
+- Auth
+    - Allow non logged in users to see posts
 
 ## Getting Started
 
@@ -47,4 +56,4 @@ crystal spec
 
 ## Contributors
 
-- [your-github-user](https://github.com/your-github-user) Andrew Smith - creator, maintainer
+- [silentworks](https://github.com/silentworks) Andrew Smith - creator, maintainer
