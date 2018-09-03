@@ -38,6 +38,7 @@ Amber::Server.configure do
     get "/signup", RegistrationController, :new
     post "/registration", RegistrationController, :create
     resources "/", PostController
+    resources "/comments", CommentController, only: [:create, :destroy]
   end
 
   routes :api do

@@ -3,6 +3,7 @@ class Post < Granite::Base
   table_name posts
 
   belongs_to :user
+  has_many :comments
   
   # id : Int64 primary key is created for you
   field title : String
