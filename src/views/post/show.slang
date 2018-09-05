@@ -8,8 +8,8 @@
 .btn-group
   == link_to("Visit URL", "#{post.url}", class: "btn btn-primary")
   - if (current_user = context.current_user) && (post.user.id == current_user.id)
-    == link_to("Edit", "/#{post.id}/edit", class: "btn btn-outline-secondary")
-    == link_to("Delete", "/#{post.id}?_csrf=#{csrf_token}", "data-method": "delete", "data-confirm": "Are you sure?", class: "btn btn-outline-secondary")
+    == link_to("Edit", "/posts/#{post.id}/edit", class: "btn btn-outline-secondary")
+    == link_to("Delete", "/posts/#{post.id}?_csrf=#{csrf_token}", "data-method": "delete", "data-confirm": "Are you sure?", class: "btn btn-outline-secondary")
 
 h3.comments_title
   | #{post.comments.size} Comments

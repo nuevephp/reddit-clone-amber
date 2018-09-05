@@ -37,7 +37,8 @@ Amber::Server.configure do
     get "/signout", SessionController, :delete
     get "/signup", RegistrationController, :new
     post "/registration", RegistrationController, :create
-    resources "/", PostController
+    get "/", HomeController, :index
+    resources "/posts", PostController
     resources "/comments", CommentController, only: [:create, :destroy]
   end
 

@@ -1,5 +1,6 @@
 class HomeController < ApplicationController
   def index
-    render("index.slang")
+    posts = Post.all
+    render "post/index.slang"
   end
 end

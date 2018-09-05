@@ -3,7 +3,15 @@ class HTTP::Server::Context
 end
 
 class Authenticate < Amber::Pipe::Base
-  PUBLIC_PATHS = ["/", "/signin", "/session", "/signup", "/registration"]
+  PUBLIC_PATHS = [
+    /^\/$/, 
+    /^\/posts$/, 
+    /^\/posts\/([0-9]+)$/, 
+    /^\/signin/, 
+    /^\/session/, 
+    /^\/signup/, 
+    /^\/registration/
+  ]
 
   def call(context)
     user_id = context.session["user_id"]?
@@ -19,7 +27,10 @@ class Authenticate < Amber::Pipe::Base
   end
 
   private def public_path?(path)
-    PUBLIC_PATHS.includes?(path)
+    # PUBLIC_PATHS.includes?(path)
+    # PUBLIC_PATHS.grep(path)
+    # PUBLIC_PATHS.any? { |word| path.lchop("/").match(word) }
+    PUBLIC_PATHS.any? { |word| path =~ word }
 
     # Different strategies can be used to determine if a path is public
     # Example, if /admin/* paths are the only private paths

@@ -3,7 +3,7 @@
     - post.errors.each do |error|
       li = error.to_s
 
-== form(action: "/#{post.id.to_s}", method: post.id ? :patch : :post) do
+== form(action: "/posts/#{post.id.to_s}", method: post.id ? :patch : :post) do
   == csrf_tag
   .form-group
     == text_field(name: "title", value: post.title, placeholder: "Title", class: "form-control")
