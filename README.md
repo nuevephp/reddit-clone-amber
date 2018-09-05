@@ -4,14 +4,10 @@
 
 Following from the tutorial of 12 projects in 12 Weeks with Rails.
 
-### To do
-- Voting
-    - Upvote
-    - Downvote
-- Comment
-    - Body should be validated to not allow empty
-- Auth
-    - Allow non logged in users to see posts
+### Features
+- Authentication
+- Posting
+- Commenting
 
 ## Getting Started
 
