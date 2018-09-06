@@ -11,7 +11,7 @@
   - active = context.request.path == "/profile" ? "active" : ""
   li class="nav-item nav-item-auth nav-item-auth-profile #{active}"
     a class="nav-link #{active}" href="/profile"
-      == current_user.email
+      == current_user.name
 - else
   - active = context.request.path == "/signup" ? "active" : ""
   li class="nav-item nav-item-auth nav-item-auth-signup #{active}"

@@ -4,4 +4,4 @@
       == link_to("#{post.title}", "/posts/#{post.id}")
       br
       small.author
-        | Submitted #{time_to_string(post.created_at.not_nil!)} by #{post.user.email}
+        | Submitted #{time_to_string(post.created_at.not_nil!)} by #{post.user.name}

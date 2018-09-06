@@ -8,6 +8,7 @@ class User < Granite::Base
   has_many :posts
 
   primary id : Int64
+  field name : String
   field email : String
   field hashed_password : String
   timestamps

@@ -3,7 +3,7 @@
     == link_to("#{post.title}", "#{post.url}")
     br
     small.author
-      | Submitted #{time_to_string(post.created_at.not_nil!)} by #{post.user.email}
+      | Submitted #{time_to_string(post.created_at.not_nil!)} by #{post.user.name}
 
 .btn-group
   == link_to("Visit URL", "#{post.url}", class: "btn btn-primary")
