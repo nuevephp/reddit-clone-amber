@@ -30,7 +30,7 @@ class CommentController < ApplicationController
   private def comment_params
     params.validation do
       required :post_id { |f| !f.nil? }
-      required :body { |f| !f.nil? }
+      required :body { |f| !f.nil? & !f.empty? }
     end
   end
 
