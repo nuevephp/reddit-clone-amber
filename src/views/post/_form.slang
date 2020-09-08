@@ -9,6 +9,5 @@
     == text_field(name: "title", value: post.title, placeholder: "Title", class: "form-control")
   .form-group
     == text_field(name: "url", value: post.url, placeholder: "Url", class: "form-control")
-  .form-group
-    == submit("Submit", class: "btn btn-primary btn-lg")
-    == link_to("back", "/", class: "btn btn-light btn-link")
+  == submit("Submit", class: "btn btn-success btn-sm")
+  == link_to("Back", "/posts", class: "btn btn-light btn-sm")

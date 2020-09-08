@@ -11,6 +11,5 @@ h1 Edit Profile
     input.form-control type="name" name="name" placeholder="Name" value="#{user.name}"
   .form-group
     input.form-control type="email" name="email" placeholder="Email" value="#{user.email}"
-  .form-group
-  == submit("Update", class: "btn btn-primary btn-lg")
-  == link_to("profile", "/profile", class: "btn btn-light btn-link")
+  == submit("Update", class: "btn btn-success btn-sm")
+  == link_to("Profile", "/profile", class: "btn btn-light btn-sm")

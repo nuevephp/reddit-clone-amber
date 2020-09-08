@@ -14,9 +14,9 @@ class CommentController < ApplicationController
     else
       redirect_to controller: :post, action: :index, flash: {"danger" => "You need to be logged in"}
     end
-    
+
     if comment.save
-      redirect_back flash: {"success" => "Created comment successfully."}
+      redirect_back flash: {"success" => "Comment has been created."}
     else
       redirect_back flash: {"danger" => "Could not create Comment!"}
     end
@@ -29,8 +29,8 @@ class CommentController < ApplicationController
 
   private def comment_params
     params.validation do
-      required :post_id { |f| !f.nil? }
-      required :body { |f| !f.nil? & !f.empty? }
+      required :post_id
+      required :body
     end
   end
 

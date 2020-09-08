@@ -1,6 +1,11 @@
-require "../config/application.cr"
+require "../config/application"
 
-user = User.new
-user.email = "admin@example.com"
-user.password = "password"
-user.save
+# This file is for setting up your seeds.
+#
+# To run seeds execute `amber db seed`
+
+# Example:
+# User.create(name: "example", email: "ex@mple.com")
+# Test user for auth
+
+User.create(email: "admin@example.com", password: "password")

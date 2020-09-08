@@ -22,41 +22,42 @@ class PostController < ApplicationController
     render "edit.slang"
   end
 
-  def update
-    post.set_attributes post_params.validate!
-    if post.save
-      redirect_to action: :index, flash: {"success" => "Updated post successfully."}
-    else
-      flash["danger"] = "Could not update Post!"
-      render "edit.slang"
-    end
-  end
-
   def create
     post = Post.new post_params.validate!
+
     if user = current_user
       post.user = user
     else
       redirect_to action: :index, flash: {"danger" => "You need to be logged in"}
     end
-
+    
     if post.save
-      redirect_to action: :index, flash: {"success" => "Created post successfully."}
+      redirect_to action: :index, flash: {"success" => "Post has been created."}
     else
-      flash["danger"] = "Could not create Post! Wat: #{current_user}"
+      flash[:danger] = "Could not create Post!"
       render "new.slang"
+    end
+  end
+
+  def update
+    post.set_attributes post_params.validate!
+    if post.save
+      redirect_to action: :index, flash: {"success" => "Post has been updated."}
+    else
+      flash[:danger] = "Could not update Post!"
+      render "edit.slang"
     end
   end
 
   def destroy
     post.destroy
-    redirect_to action: :index, flash: {"success" => "Deleted post successfully."}
+    redirect_to action: :index, flash: {"success" => "Post has been deleted."}
   end
 
   private def post_params
     params.validation do
-      required :title { |f| !f.nil? }
-      required :url { |f| !f.nil? }
+      required :title
+      required :url
     end
   end
 

@@ -1,24 +1,12 @@
 require "jasper_helpers"
-# require "humanize_time"
+require "../reddit_helpers"
 
 class ApplicationController < Amber::Controller::Base
   include JasperHelpers
-  include Helpers::TimeToStringHelper
-
+  include RedditHelpers
   LAYOUT = "application.slang"
 
   def current_user
     context.current_user
-  end
-
-  def signed_in?
-    current_user ? true : false
-  end
-
-  private def redirect_signed_out_user
-    unless signed_in?
-      flash[:info] = "Must be logged in"
-      redirect_to "/signin"
-    end
   end
 end

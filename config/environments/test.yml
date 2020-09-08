@@ -1,4 +1,4 @@
-secret_key_base: -pRu_FM6HzkAthpW9Mk14eA0g0l_00fGbe0MmC3jv_Q
+secret_key_base: imLwVjEi_m2pkg9baixSDRX2BaTtdvEj15Wg_WvRpNE
 port: 3000
 name: reddit
 
@@ -8,20 +8,15 @@ logging:
   filter:
     - password
     - confirm_password
-  context:
-    - request
-    - session
-    - headers
-    - cookies
-    - params
-
+    
 host: 0.0.0.0
 port_reuse: false
 process_count: 1
 # ssl_key_file:
 # ssl_cert_file:
 redis_url: "redis://localhost:6379"
-database_url: postgres://postgres:@localhost:5432/reddit_test
+database_url: postgres://postgres:password@localhost:5432/reddit_test
+auto_reload: false
 
 session:
   key: amber.session
@@ -33,4 +28,3 @@ smtp:
 
 secrets:
   description: Store your development secrets credentials and settings here.
-

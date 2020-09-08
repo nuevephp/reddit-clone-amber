@@ -1,11 +1,11 @@
 class Comment < Granite::Base
-  adapter pg
-  table_name comments
+  connection pg
+  table comments
 
-  belongs_to :user
   belongs_to :post
+  belongs_to :user
 
-  # id : Int64 primary key is created for you
-  field body : String
+  column id : Int64, primary: true
+  column body : String?
   timestamps
 end

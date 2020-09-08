@@ -1,16 +1,16 @@
-require "granite/adapter/pg"
 require "crypto/bcrypt/password"
 
 class User < Granite::Base
   include Crypto
-  adapter pg
+  connection pg
+  table users
 
-  has_many :posts
+  has_many :post
 
-  primary id : Int64
-  field name : String
-  field email : String
-  field hashed_password : String
+  column id : Int64, primary: true
+  column name : String?
+  column email : String?
+  column hashed_password : String?
   timestamps
 
   validate :email, "is required", ->(user : User) do
@@ -19,7 +19,7 @@ class User < Granite::Base
 
   validate :email, "already in use", ->(user : User) do
     existing = User.find_by email: user.email
-    !existing
+    !existing || existing.id == user.id
   end
 
   validate :password, "is too short", ->(user : User) do
@@ -44,7 +44,7 @@ class User < Granite::Base
   end
 
   def authenticate(password : String)
-    (bcrypt_pass = self.password) ? bcrypt_pass == password : false
+    (bcrypt_pass = self.password) ? bcrypt_pass.verify(password) : false
   end
 
   private getter new_password : String?

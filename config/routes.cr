@@ -1,8 +1,8 @@
 Amber::Server.configure do
-  pipeline :web do
+  pipeline :web, :auth do
     # Plug is the method to use connect a pipe (middleware)
     # A plug accepts an instance of HTTP::Handler
-    plug Amber::Pipe::PoweredByAmber.new
+    # plug Amber::Pipe::PoweredByAmber.new
     # plug Amber::Pipe::ClientIp.new(["X-Forwarded-For"])
     plug Citrine::I18n::Handler.new
     plug Amber::Pipe::Error.new
@@ -10,11 +10,17 @@ Amber::Server.configure do
     plug Amber::Pipe::Session.new
     plug Amber::Pipe::Flash.new
     plug Amber::Pipe::CSRF.new
+
+    plug CurrentUser.new
     plug Authenticate.new
   end
 
+  pipeline :auth do
+    # plug Authenticate.new
+  end
+
   pipeline :api do
-    plug Amber::Pipe::PoweredByAmber.new
+    # plug Amber::Pipe::PoweredByAmber.new
     plug Amber::Pipe::Error.new
     plug Amber::Pipe::Logger.new
     plug Amber::Pipe::Session.new
@@ -23,23 +29,26 @@ Amber::Server.configure do
 
   # All static content will run these transformations
   pipeline :static do
-    plug Amber::Pipe::PoweredByAmber.new
+    # plug Amber::Pipe::PoweredByAmber.new
     plug Amber::Pipe::Error.new
     plug Amber::Pipe::Static.new("./public")
   end
 
   routes :web do
+    get "/", PostController, :index
+    get "/signin", SessionController, :new
+    post "/session", SessionController, :create
+    get "/signup", UserController, :new
+    post "/registration", UserController, :create
+    resources "posts", PostController
+    resources "comments", CommentController, only: [:create, :destroy]
+  end
+
+  routes :auth do
     get "/profile", UserController, :show
     get "/profile/edit", UserController, :edit
     patch "/profile", UserController, :update
-    get "/signin", SessionController, :new
-    post "/session", SessionController, :create
     get "/signout", SessionController, :delete
-    get "/signup", RegistrationController, :new
-    post "/registration", RegistrationController, :create
-    get "/", HomeController, :index
-    resources "/posts", PostController
-    resources "/comments", CommentController, only: [:create, :destroy]
   end
 
   routes :api do

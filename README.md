@@ -1,13 +1,8 @@
-# reddit clone
+# reddit-clone-new
 
 [![Amber Framework](https://img.shields.io/badge/using-amber_framework-orange.svg)](https://amberframework.org)
 
-Following from the tutorial of 12 projects in 12 Weeks with Rails.
-
-### Features
-- Authentication
-- Posting
-- Commenting
+This is a project written using [Amber](https://amberframework.org). Enjoy!
 
 ## Getting Started
 
@@ -44,7 +39,7 @@ crystal spec
 
 ## Contributing
 
-1. Fork it ( https://github.com/your-github-user/reddit/fork )
+1. Fork it ( https://github.com/your-github-user/reddit-clone-new/fork )
 2. Create your feature branch ( `git checkout -b my-new-feature` )
 3. Commit your changes ( `git commit -am 'Add some feature'` )
 4. Push to the branch ( `git push origin my-new-feature` )
@@ -52,4 +47,4 @@ crystal spec
 
 ## Contributors
 
-- [silentworks](https://github.com/silentworks) Andrew Smith - creator, maintainer
+- [your-github-user](https://github.com/your-github-user) Andrew Smith - creator, maintainer

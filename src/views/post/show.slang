@@ -1,4 +1,4 @@
-.mt-5.mb-4.pb-3.border-bottom
+.mb-4.pb-3.border-bottom
   h2 
     == link_to("#{post.title}", "#{post.url}")
     br

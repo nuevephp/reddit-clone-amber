@@ -1,5 +1,5 @@
 - posts.each do |post|
-  .link.row.clearfix
+  .link.row.mb-4
     h2
       == link_to("#{post.title}", "/posts/#{post.id}")
       br

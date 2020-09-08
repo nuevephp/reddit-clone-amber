@@ -7,18 +7,18 @@
   table.table.table-striped
     thead
       tr
-        th Post_id
+        th Post
         th Body
         th User
         th Actions
     tbody
       - comments.each do |comment|
         tr
-          td = comment.post_id
+          td = comment.post.id
           td = comment.body
           td = comment.user.id
           td
             span
-              == link_to("read", "/comments/#{comment.id}", class: "btn btn-primary btn-sm")
-              == link_to("edit", "/comments/#{comment.id}/edit", class: "btn btn-success btn-sm")
-              == link_to("delete", "/comments/#{ comment.id }?_csrf=#{csrf_token}", "data-method": "delete", "data-confirm": "Are you sure?", class: "btn btn-danger btn-sm")
+              == link_to("Show", "/comments/#{comment.id}", class: "btn btn-info btn-sm")
+              == link_to("Edit", "/comments/#{comment.id}/edit", class: "btn btn-success btn-sm")
+              == link_to("Delete", "/comments/#{ comment.id }?_csrf=#{csrf_token}", "data-method": "delete", "data-confirm": "Are you sure?", class: "btn btn-danger btn-sm")

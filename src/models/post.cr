@@ -1,12 +1,12 @@
 class Post < Granite::Base
-  adapter pg
-  table_name posts
+  connection pg
+  table posts
 
   belongs_to :user
-  has_many :comments
-  
-  # id : Int64 primary key is created for you
-  field title : String
-  field url : String
+  has_many :comments, class_name: Comment
+
+  column id : Int64, primary: true
+  column title : String?
+  column url : String?
   timestamps
 end
